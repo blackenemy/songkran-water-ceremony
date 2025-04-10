@@ -1,0 +1,302 @@
+/* รีเซ็ต CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.title {
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+
+.buddha-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.buddha {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buddha img {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.water-drop {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(135, 206, 250, 0.7);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: 120px;
+    right: 120px;
+    transform-origin: center bottom;
+    z-index: 3;
+    opacity: 0;
+}
+
+.water-stream {
+    position: absolute;
+    width: 10px;
+    height: 0;
+    background: linear-gradient(to bottom, rgba(173, 216, 230, 0.8), rgba(135, 206, 250, 0.6));
+    top: 120px;
+    right: 122px;
+    border-radius: 40%;
+    z-index: 2;
+    transform-origin: top center;
+    opacity: 0;
+}
+
+.hand-container {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    top: 20px;
+    right: -50px;
+    z-index: 5;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.hand {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    transform: scaleX(-1); /* กลับด้านมือให้หันไปทางซ้าย */
+}
+
+.hand img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.flower {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 50px;
+    z-index: 0;
+}
+
+.flower.left {
+    left: 50px;
+}
+
+.flower.right {
+    right: 50px;
+}
+
+.flower img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.message {
+    color: #1e3a8a;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 80px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.header-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 101px;
+    height: 50px;
+}
+
+.header-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes pourWater {
+    0% {
+        transform: rotate(0) translateY(0);
+    }
+    20% {
+        transform: rotate(0) translateY(0);
+    }
+    50% {
+        transform: rotate(30deg) translateY(5px);
+    }
+    80% {
+        transform: rotate(45deg) translateY(10px);
+    }
+    100% {
+        transform: rotate(45deg) translateY(10px);
+    }
+}
+
+@keyframes moveHand {
+    0% {
+        transform: translate(-50, 0) rotate(0);
+    }
+    20% {
+        transform: translate(-100px, 30px) rotate(-5deg);
+    }
+    80% {
+        transform: translate(-100px, 30px) rotate(15deg);
+    }
+    100% {
+        transform: translate(-100px, 30px) rotate(15deg);
+    }
+}
+
+@keyframes streamFlow {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+    20% {
+        height: 0;
+        opacity: 0;
+    }
+    30% {
+        height: 40px;
+        opacity: 0.8;
+    }
+    90% {
+        height: 100px;
+        opacity: 0.8;
+    }
+    100% {
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+@keyframes dropFall {
+    0% {
+        transform: scale(1);
+        top: 120px;
+        opacity: 0;
+    }
+    30% {
+        transform: scale(1);
+        top: 120px;
+        opacity: 0;
+    }
+    40% {
+        transform: scale(1.2);
+        top: 170px;
+        opacity: 0.8;
+    }
+    80% {
+        transform: scale(0.8);
+        top: 270px;
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0.5);
+        top: 320px;
+        opacity: 0;
+    }
+}
+
+.button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #d4af37;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #b8860b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* สำหรับหน้าจอโทรศัพท์มือถือ */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .buddha-container {
+        width: 250px;
+        height: 350px;
+    }
+    
+    .message {
+        font-size: 1.5rem;
+    }
+    
+    .button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    
+    .header-logo, .logo {
+        width: 101px;
+        height: 36px;
+    }
+}
