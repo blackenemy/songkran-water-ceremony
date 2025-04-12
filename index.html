@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สงกรานต์ - รดน้ำพระ</title>
+    <title>Dudee | สงกรานต์ - สรงน้ำพระ</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- <div class="header-logo">
         <img src="images/songkran-logo.png" alt="สงกรานต์ หัวปีใหม่ไทย">
@@ -13,40 +15,103 @@
     <div class="header-logo">
         <img src="images/Logo_Dudee.png" alt="Logo Dudee">
     </div>
+
+    <div id="flowerContainer"></div>
+    <div id="randomMessage" class="random-message"></div>
+
     <!-- <div class="logo">
         <img src="images/company.png" alt="Company dudee">
     </div> -->
 
+    <div class="container-flower">
+        <div class="wrapper">
+            <div class="petal petal1"></div>
+            <div class="petal petal2"></div>
+            <div class="petal petal3"></div>
+            <div class="petal petal4"></div>
+            <div class="petal petal5"></div>
+            <div class="petal petal6"></div>
+            <div class="petal petal7"></div>
+            <div class="petal petal8"></div>
+            <div class="petal petal9"></div>
+            <div class="petal petal10"></div>
+            <div class="miolo"></div>
+        </div>
+    </div>
+
+
     <div class="container">
-        <h1 class="title">สวัสดีปีใหม่ไทย</h1>
-        
-        <div class="buddha-container">
-            <div class="flower left">
-                <img src="images/flower.png" alt="ดอกไม้">
+        <div class="flex">
+            <img src="images/songkran_text.png" alt="text" class="img-title">
+            <div class="button-container">
+                <img id="pourButton" src="images/blow-gold.png" alt="ขัน" class="button heartbeat-pulse">
             </div>
-            <div class="flower right">
-                <img src="images/flower.png" alt="ดอกไม้">
-            </div> 
+        </div>
+
+
+
+        <div class="buddha-container">
             <div class="buddha">
                 <img style="height: 594px; width: 420px;" src="images/buddha.png" alt="พระพุทธรูป">
             </div>
             <div class="water-drop" id="waterDrop"></div>
             <div class="water-stream" id="waterStream"></div>
-            
+
             <!-- แยกส่วนมือและขันออกมา -->
             <div class="hand-container" id="handContainer">
                 <div class="bowl" id="bowl"></div>
                 <div class="hand" id="hand">
-                    <img src="images/hand.png" alt="มือรดน้ำพระ">
+                    <img src="images/blow-gold.png" alt="มือรดน้ำพระ">
                 </div>
             </div>
         </div>
 
-        <p class="message">สาธุ...ขอให้มีความสุขในวันปีใหม่ไทย</p>
-        
-        <button class="button" id="pourButton">รดน้ำพระ</button>
+        <p class="message"></p>
+
+        <div class="corner-flower left-corner">
+            <img src="../images/flower.png" alt="flower left" />
+        </div>
+
+        <div class="corner-flower right-corner">
+            <img src="../images/flower.png" alt="flower right" />
+        </div>
+
     </div>
 
+    <div id="glowContainer"></div>
+
     <script src="js/script.js"></script>
+    <script>
+        function createGlowParticle() {
+            const glow = document.createElement('div');
+            glow.classList.add('glow');
+
+            // สุ่มตำแหน่ง X (ทั่วหน้าจอ)
+            glow.style.left = Math.random() * 100 + 'vw';
+
+            // สุ่มขนาด
+            const size = Math.random() * 6 + 4; // 4px ถึง 10px
+            glow.style.width = `${size}px`;
+            glow.style.height = `${size}px`;
+
+            // สุ่มระยะเวลา animation
+            const duration = Math.random() * 6 + 4; // 4 ถึง 10 วินาที
+            glow.style.animationDuration = `${duration}s`;
+
+            // สุ่ม delay ให้ไม่ลอยพร้อมกัน
+            glow.style.animationDelay = `${Math.random() * 2}s`;
+
+            document.getElementById('glowContainer').appendChild(glow);
+
+            // ลบออกหลัง animation จบ
+            setTimeout(() => {
+                glow.remove();
+            }, duration * 1000);
+        }
+
+        // สร้างเรื่อย ๆ ทุก 200ms
+        setInterval(createGlowParticle, 200);
+    </script>
 </body>
+
 </html>
